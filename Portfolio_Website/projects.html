@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | Abdulhamid Modibbo</title>
+<meta name="description" content="M&E systems, dashboards, and program management tools built by Abdulhamid Modibbo for development programs across Nigeria.">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">Portfolio.</a>
+    <nav class="main-nav">
+      <a href="index.html" data-page="index.html">Home</a>
+      <a href="about.html" data-page="about.html">About me</a>
+      <a href="projects.html" data-page="projects.html">Projects</a>
+      <a href="contact.html" data-page="contact.html">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  
+  <section class="hero">
+    <div class="container">
+      <div class="page-banner">
+        <h1>Projects</h1>
+        <p class="crumb"><a href="index.html">Home</a><span>/</span>Projects</p>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="section-pad" id="all-projects">
+    <div class="container">
+      <div class="heading-group" style="margin-bottom: 34px;">
+        <h2 class="section-heading">All Work</h2>
+        <div class="heading-rule"></div>
+      </div>
+
+      <div class="filter-bar" id="filterBar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="M&E Systems">M&amp;E Systems</button>
+        <button class="filter-btn" data-filter="Health &amp; Nutrition">Health &amp; Nutrition</button>
+        <button class="filter-btn" data-filter="Program Management">Program Management</button>
+        <button class="filter-btn" data-filter="Energy &amp; Power">Energy &amp; Power</button>
+        <button class="filter-btn" data-filter="Sports Analytics">Sports Analytics</button>
+        <button class="filter-btn" data-filter="Public Health Analytics">Public Health Analytics</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+<footer class="site-footer">
+  <p>Copyright 2026. All Rights Reserved.</p>
+</footer>
+
+<script src="js/projects-data.js"></script>
+<script src="js/script.js"></script>
+<script>
+  (function () {
+    const grid = document.getElementById('projectsGrid');
+    const filterBar = document.getElementById('filterBar');
+
+    function render(list) {
+      grid.innerHTML = list.map(function (p) {
+        return (
+          '<article class="project-card">' +
+            '<a href="view-project.html?project=' + p.id + '" class="project-card-img">' +
+              '<img src="' + p.image + '" alt="' + p.title + ' preview" loading="lazy">' +
+            '</a>' +
+            '<div class="project-card-footer">' +
+              '<h3>' + p.title + '</h3>' +
+              '<div class="project-card-actions">' +
+                '<a href="view-project.html?project=' + p.id + '" class="btn btn-red">View Project</a>' +
+                '<a href="' + p.githubUrl + '" class="btn btn-red">Github</a>' +
+              '</div>' +
+            '</div>' +
+          '</article>'
+        );
+      }).join('');
+    }
+
+    render(PROJECTS);
+
+    filterBar.addEventListener('click', function (e) {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      filterBar.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      render(filter === 'all' ? PROJECTS : PROJECTS.filter(function (p) { return p.category === filter; }));
+    });
+  })();
+</script>
+</body>
+</html>
