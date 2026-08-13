@@ -5,20 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projects | Abdulhamid Modibbo</title>
 <meta name="description" content="M&E systems, dashboards, and program management tools built by Abdulhamid Modibbo for development programs across Nigeria.">
-<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-<link rel="stylesheet" href="css/style.css">
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
 
 <header class="site-header">
   <div class="container">
-    <a href="index.html" class="logo">Portfolio.</a>
+    <a href="/index.html" class="logo">Portfolio.</a>
     <nav class="main-nav">
-      <a href="index.html" data-page="index.html">Home</a>
-      <a href="about.html" data-page="about.html">About me</a>
-      <a href="projects.html" data-page="projects.html">Projects</a>
-      <a href="contact.html" data-page="contact.html">Contact</a>
+      <a href="/index.html" data-page="index.html">Home</a>
+      <a href="/about.html" data-page="about.html">About me</a>
+      <a href="/projects.html" data-page="projects.html">Projects</a>
+      <a href="/contact.html" data-page="contact.html">Contact</a>
     </nav>
     <button class="nav-toggle" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -33,7 +33,7 @@
     <div class="container">
       <div class="page-banner">
         <h1>Projects</h1>
-        <p class="crumb"><a href="index.html">Home</a><span>/</span>Projects</p>
+        <p class="crumb"><a href="/index.html">Home</a><span>/</span>Projects</p>
       </div>
     </div>
   </section>
@@ -69,8 +69,8 @@
   <p>Copyright 2026. All Rights Reserved.</p>
 </footer>
 
-<script src="js/projects-data.js"></script>
-<script src="js/script.js"></script>
+<script src="/js/projects-data.js"></script>
+<script src="/js/script.js"></script>
 <script>
   (function () {
     const grid = document.getElementById('projectsGrid');
@@ -80,13 +80,13 @@
       grid.innerHTML = list.map(function (p) {
         return (
           '<article class="project-card">' +
-            '<a href="view-project.html?project=' + p.id + '" class="project-card-img">' +
+            '<a href="/view-project.html?project=' + p.id + '" class="project-card-img">' +
               '<img src="' + p.image + '" alt="' + p.title + ' preview" loading="lazy">' +
             '</a>' +
             '<div class="project-card-footer">' +
               '<h3>' + p.title + '</h3>' +
               '<div class="project-card-actions">' +
-                '<a href="view-project.html?project=' + p.id + '" class="btn btn-red">View Project</a>' +
+                '<a href="/view-project.html?project=' + p.id + '" class="btn btn-red">View Project</a>' +
                 '<a href="' + p.githubUrl + '" class="btn btn-red">Github</a>' +
               '</div>' +
             '</div>' +
