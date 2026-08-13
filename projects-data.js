@@ -3,7 +3,7 @@ const PROJECTS = [
     id: 'meal-information-system',
     title: 'End-to-end M&E Information System',
     category: 'M&E Systems',
-    image: 'images/meal-image3.png',
+    image: 'meal-image3.png',
     shortDesc: 'A complete field-to-dashboard M&E pipeline covering indicator design, KoboToolbox data collection, data quality, database management, SQL indicators, and reporting.',
     tools: ['KoboToolbox', 'Python', 'pandas', 'SQLite', 'SQL', 'HTML', 'Chart.js'],
     githubUrl: 'https://github.com/jarumin/End-to-End-M-E-Information-System-',
@@ -52,12 +52,12 @@ const PROJECTS = [
         }
       ],
       charts: [
-        ['images/meal-image1.png', 'Farmers registered by state'],
-        ['images/meal-image2.png', 'Training attendance rate by state against an 80% target'],
-        ['images/meal-image3.png', 'Milk yield at baseline versus follow-up against an 8 litres/day target'],
-        ['images/meal-image4.png', 'Practice adoption rate by state against a 60% target'],
-        ['images/meal-image5.png', 'Farmer registrations by month'],
-        ['images/meal-image6.png', 'Raw versus clean records across the three forms']
+        ['meal-image1.png', 'Farmers registered by state'],
+        ['meal-image2.png', 'Training attendance rate by state against an 80% target'],
+        ['meal-image3.png', 'Milk yield at baseline versus follow-up against an 8 litres/day target'],
+        ['meal-image4.png', 'Practice adoption rate by state against a 60% target'],
+        ['meal-image5.png', 'Farmer registrations by month'],
+        ['meal-image6.png', 'Raw versus clean records across the three forms']
       ]
     }
   },
@@ -65,7 +65,7 @@ const PROJECTS = [
     id: 'nigeria-health-nutrition-dashboard',
     title: 'Nigeria Health and Nutrition M&E Dashboard',
     category: 'Health & Nutrition',
-    image: 'images/project-health-dashboard.jpg',
+    image: 'project-health-dashboard.jpg',
     shortDesc: 'A Power BI dashboard built on NDHS data, covering 20 health and nutrition indicators across national, zonal, state, North East, and trend views.',
     tools: ['Power BI', 'Power Query', 'DAX', 'Data Modeling'],
     githubUrl: 'https://github.com/jarumin/Nigeria-Health-Nutrition-Dashboard',
@@ -122,7 +122,7 @@ const PROJECTS = [
     id: 'project-management-dashboard',
     title: 'Project Management Dashboard',
     category: 'Program Management',
-    image: 'images/pm-image3.png',
+    image: 'pm-image3.png',
     shortDesc: 'An executive Excel dashboard for a large multi-phase infrastructure and value chain programme, linking activities, milestones, budgets, and delivery status.',
     tools: ['Excel', 'SUMIF', 'COUNTIFS', 'IFERROR', 'Data Validation', 'Native Charts'],
     githubUrl: 'https://github.com/jarumin/Project-Management-Dashboard',
@@ -171,9 +171,9 @@ const PROJECTS = [
         }
       ],
       charts: [
-        ['images/pm-image3.png', 'Executive dashboard with task completion and budget burn charts'],
-        ['images/pm-image1.png', 'Activity Tracker — task-level project data'],
-        ['images/pm-image2.png', 'Milestone Tracker — programme milestone data']
+        ['pm-image3.png', 'Executive dashboard with task completion and budget burn charts'],
+        ['pm-image1.png', 'Activity Tracker — task-level project data'],
+        ['pm-image2.png', 'Milestone Tracker — programme milestone data']
       ]
     }
   },
@@ -181,7 +181,7 @@ const PROJECTS = [
     id: 'power-sector-analysis',
     title: "Nigeria's Electricity Market in 2025",
     category: 'Energy & Power',
-    image: 'images/power-sector-atcc-loss.png',
+    image: 'power-sector-atcc-loss.png',
     shortDesc: 'A 2025 Nigerian power-sector analysis examining generation utilisation, DisCo commercial performance, ATC&C losses, and grid stability.',
     tools: ['Python', 'pandas', 'CSV', 'Data Analysis', 'Data Visualisation'],
     githubUrl: 'https://github.com/jarumin/Power-Sector-Analysis',
@@ -227,9 +227,9 @@ const PROJECTS = [
         }
       ],
       charts: [
-        ['images/power-sector-offtake.png', 'National DisCo offtake performance by quarter, 2025'],
-        ['images/power-sector-commercial.png', 'National collection efficiency versus ATC&C loss by quarter'],
-        ['images/power-sector-atcc-loss.png', 'Full-year average ATC&C loss ranked by DisCo']
+        ['power-sector-offtake.png', 'National DisCo offtake performance by quarter, 2025'],
+        ['power-sector-commercial.png', 'National collection efficiency versus ATC&C loss by quarter'],
+        ['power-sector-atcc-loss.png', 'Full-year average ATC&C loss ranked by DisCo']
       ]
     }
   },
@@ -237,7 +237,7 @@ const PROJECTS = [
     id: 'world-cup-expansion-analysis',
     title: '2026 World Cup Expansion Analysis',
     category: 'Sports Analytics',
-    image: 'images/world-cup-overall-gpg.png',
+    image: 'world-cup-overall-gpg.png',
     shortDesc: 'A match-level analysis of the expanded 48-team World Cup, examining goal output, upset patterns, and group-stage competitiveness.',
     tools: ['Python', 'pandas', 'Jupyter Notebook', 'Data Analysis', 'Data Visualisation'],
     githubUrl: 'https://github.com/jarumin/2026-World-Cup-Expansion-Analysis',
@@ -285,11 +285,11 @@ const PROJECTS = [
         }
       ],
       charts: [
-        ['images/world-cup-overall-gpg.png', 'Overall tournament goals per game, 2014–2026'],
-        ['images/world-cup-gpg-stage.png', 'Goals per game by stage, stages common to both formats'],
-        ['images/world-cup-upsets.png', 'Upset rate by FIFA ranking gap, 2026 World Cup'],
-        ['images/world-cup-group-character.png', 'Group stage match character, 2014–2026'],
-        ['images/world-cup-rank-gap-margin.png', 'Average FIFA ranking gap by group stage match margin, 2026']
+        ['world-cup-overall-gpg.png', 'Overall tournament goals per game, 2014–2026'],
+        ['world-cup-gpg-stage.png', 'Goals per game by stage, stages common to both formats'],
+        ['world-cup-upsets.png', 'Upset rate by FIFA ranking gap, 2026 World Cup'],
+        ['world-cup-group-character.png', 'Group stage match character, 2014–2026'],
+        ['world-cup-rank-gap-margin.png', 'Average FIFA ranking gap by group stage match margin, 2026']
       ]
     }
   },
@@ -297,7 +297,7 @@ const PROJECTS = [
     id: 'vaccination-outbreak-analysis',
     title: 'Vaccination Coverage vs. Disease Outbreak',
     category: 'Public Health Analytics',
-    image: 'images/vaccination-dashboard.png',
+    image: 'vaccination-dashboard.png',
     shortDesc: 'An Excel-based analysis of WHO/UNICEF immunisation coverage and measles surveillance data across 194 countries and six WHO regions, 2010–2024.',
     tools: ['Excel', 'SUMIFS', 'COUNTIFS', 'INDEX/MATCH', 'Data Cleaning', 'Dashboard Design'],
     githubUrl: 'https://github.com/jarumin/VaccinationOutbreakAnalysis',
@@ -347,7 +347,7 @@ const PROJECTS = [
         }
       ],
       charts: [
-        ['images/vaccination-dashboard.png', 'Vaccination Coverage vs. Disease Outbreak dashboard from the summary report']
+        ['vaccination-dashboard.png', 'Vaccination Coverage vs. Disease Outbreak dashboard from the summary report']
       ]
     }
   }
