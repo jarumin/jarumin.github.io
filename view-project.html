@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Project | Abdulhamid Modibbo</title>
+<meta name="description" content="Project detail — Abdulhamid Modibbo's M&E and data analysis work.">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">Portfolio.</a>
+    <nav class="main-nav">
+      <a href="index.html" data-page="index.html">Home</a>
+      <a href="about.html" data-page="about.html">About me</a>
+      <a href="projects.html" data-page="projects.html" class="active">Projects</a>
+      <a href="contact.html" data-page="contact.html">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <a href="projects.html" class="back-link">&#8592; Back to all projects</a>
+
+    
+    <div style="margin-top: 20px;">
+      <span class="view-all-link" id="projectCategory" style="border:1px solid var(--color-border); padding:6px 16px; border-radius:20px; font-size:0.82rem; font-weight:600;"></span>
+      <h1 class="section-heading" id="projectTitle" style="margin-top:18px; font-size: clamp(1.8rem, 4vw, 2.6rem);"></h1>
+    </div>
+
+    
+    <div class="vp-hero-img">
+      <img id="projectImage" src="" alt="" style="width:100%; display:block;">
+    </div>
+
+    
+    <div class="vp-meta-row">
+      <div class="vp-meta-item">
+        <div class="label">Category</div>
+        <div class="value" id="metaCategory"></div>
+      </div>
+      <div class="vp-meta-item">
+        <div class="label">My Role</div>
+        <div class="value" id="metaRole"></div>
+      </div>
+      <div class="vp-meta-item">
+        <div class="label">Tools Used</div>
+        <div class="value" id="metaToolsCount"></div>
+      </div>
+    </div>
+
+    
+    <div class="vp-body">
+      <div>
+        <h2>Overview</h2>
+        <p id="projectOverview"></p>
+
+        <h2>Key Features</h2>
+        <ul id="projectFeatures"></ul>
+      </div>
+
+      <aside class="vp-sidebar">
+        <h3>Tools &amp; Technologies</h3>
+        <div class="vp-tools" id="projectTools"></div>
+
+        <a href="#" id="liveLink" class="btn btn-green">View Live Project</a>
+        <a href="#" id="githubLink" class="btn btn-outline">View on Github</a>
+      </aside>
+    </div>
+
+    <section class="vp-report" id="projectReport">
+      <div class="vp-report-header">
+        <span class="report-kicker">PROJECT REPORT</span>
+        <h2>Build, evidence &amp; insights</h2>
+        <p>The project detail below is based on the attached portfolio report, with the supporting visuals reproduced from the report where available.</p>
+      </div>
+      <div id="reportSections"></div>
+      <div id="reportCharts" class="report-chart-grid"></div>
+    </section>
+
+    
+    <div class="vp-nav-links">
+      <a href="#" id="prevProject">&#8592; Previous Project</a>
+      <a href="projects.html">All Projects</a>
+      <a href="#" id="nextProject">Next Project &#8594;</a>
+    </div>
+
+  </div>
+
+  
+  <section class="section-pad">
+    <div class="container">
+      <div class="page-banner" style="text-align:left; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px;">
+        <div>
+          <h1 style="font-size:1.8rem;">Have a similar project in mind?</h1>
+          <p class="crumb" style="margin-top:8px;">Let's design an M&amp;E system that gives your team real insight.</p>
+        </div>
+        <a href="contact.html" class="btn btn-green">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+<footer class="site-footer">
+  <p>Copyright 2026. All Rights Reserved.</p>
+</footer>
+
+<script src="js/projects-data.js"></script>
+<script>
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('project') || PROJECTS[0].id;
+    const project = getProjectById(id) || PROJECTS[0];
+    const index = PROJECTS.findIndex(function (p) { return p.id === project.id; });
+
+    document.getElementById('pageTitle').textContent = project.title + ' | Abdulhamid Modibbo';
+    document.getElementById('projectCategory').textContent = project.category;
+    document.getElementById('projectTitle').textContent = project.title;
+    document.getElementById('projectImage').src = project.image;
+    document.getElementById('projectImage').alt = project.title + ' dashboard';
+    document.getElementById('metaCategory').textContent = project.category;
+    document.getElementById('metaRole').textContent = project.role;
+    document.getElementById('metaToolsCount').textContent = project.tools.length + ' tools';
+    document.getElementById('projectOverview').textContent = project.overview;
+
+    document.getElementById('projectFeatures').innerHTML = project.features.map(function (f) {
+      return '<li>' + f + '</li>';
+    }).join('');
+
+    document.getElementById('projectTools').innerHTML = project.tools.map(function (t) {
+      return '<span>' + t + '</span>';
+    }).join('');
+
+    document.getElementById('liveLink').href = project.liveUrl;
+    document.getElementById('githubLink').href = project.githubUrl;
+    document.getElementById('githubLink').target = '_blank';
+    document.getElementById('githubLink').rel = 'noopener noreferrer';
+
+    const reportSections = document.getElementById('reportSections');
+    reportSections.innerHTML = (project.report && project.report.sections ? project.report.sections : []).map(function (section) {
+      let html = '<div class="vp-report-section"><h3>' + section.heading + '</h3>';
+      if (section.items) {
+        html += '<ul>' + section.items.map(function (item) { return '<li>' + item + '</li>'; }).join('') + '</ul>';
+      }
+      if (section.table) {
+        html += '<div class="report-table-wrap"><table class="report-table"><thead><tr>' + (section.headers || (section.table[0] && section.table[0].length === 5 ? ['WHO Region','DTP3 2019','DTP3 2021','DTP3 2024','Net Change 2019 to 2024'] : ['Indicator','Result','Target'])).map(function (h) { return '<th>' + h + '</th>'; }).join('') + '</tr></thead><tbody>' + section.table.map(function (row) { return '<tr>' + row.map(function (cell) { return '<td>' + cell + '</td>'; }).join('') + '</tr>'; }).join('') + '</tbody></table></div>';
+      }
+      return html + '</div>';
+    }).join('');
+
+    const chartWrap = document.getElementById('reportCharts');
+    chartWrap.innerHTML = (project.report && project.report.charts ? project.report.charts : []).map(function (chart) {
+      return '<figure class="report-chart"><img src="' + chart[0] + '" alt="' + chart[1] + '" loading="lazy"><figcaption>' + chart[1] + '</figcaption></figure>';
+    }).join('');
+
+    const prev = PROJECTS[(index - 1 + PROJECTS.length) % PROJECTS.length];
+    const next = PROJECTS[(index + 1) % PROJECTS.length];
+    document.getElementById('prevProject').href = 'view-project.html?project=' + prev.id;
+    document.getElementById('nextProject').href = 'view-project.html?project=' + next.id;
+  })();
+</script>
+<script src="js/script.js"></script>
+</body>
+</html>
