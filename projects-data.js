@@ -1,5 +1,82 @@
 const PROJECTS = [
   {
+    id: 'farmer-dropout-risk-model',
+    title: 'Predicting Farmer Program Dropout Risk',
+    category: 'Machine Learning',
+    image: 'ml-shap-drivers.png',
+    shortDesc: 'A machine learning model that flags which farmers in an extension programme are likely to drop out next, so field teams can act before it happens.',
+    tools: ['Python', 'scikit-learn', 'pandas', 'SHAP', 'Logistic Regression', 'Random Forest', 'Power BI'],
+    githubUrl: 'https://github.com/jarumin/Machine-Learning-Approach-to-Early-Identification-of-at-risk-Farmers',
+    liveUrl: '#',
+    overview: 'Agricultural extension programmes routinely lose participants partway through a cycle, and when dropout is only measured after it happens the team loses the chance to intervene. This project builds a model that predicts which enrolled farmers are at risk of dropping out, using engagement, distance to services, and support received. The goal is to move programme monitoring from reporting who has already dropped out to flagging who is likely to drop out next.',
+    features: [
+      'Dropout defined up front as missing two consecutive training cycles or extension visits without re-engaging, so the outcome variable has a clear and defensible meaning.',
+      'A synthetic dataset of 2,500 farmer records mirroring a typical programme dataset, with realistic relationships between distance, attendance, and dropout, and an overall dropout rate of 19.2 percent.',
+      'Two models compared on a 75/25 train test split with class weighting: a logistic regression baseline and a random forest.',
+      'SHAP values and logistic regression coefficients used together to identify the drivers of dropout risk.',
+      'A dashboard concept ranking extension agents and individual farmers by dropout risk, so supervisors can target follow-up visits before a visit cycle.'
+    ],
+    role: 'Problem framing, dataset design, model building and evaluation, interpretability analysis and dashboard concept',
+    report: {
+      sections: [
+        {
+          heading: 'How it was built',
+          items: [
+            'Framed dropout as a binary classification problem and fixed the dropout definition before any modelling began.',
+            'Generated a 2,500-record synthetic dataset because real beneficiary data cannot be shared publicly, built to mirror the structure and relationships of a real programme dataset.',
+            'Checked the data for missing values and duplicates before modelling. None were found.',
+            'Built a logistic regression baseline for interpretable coefficients and a random forest to test whether a more complex model improved on it.',
+            'Applied class weighting to handle the imbalance between farmers who stayed and farmers who dropped out.',
+            'Evaluated both models on a held out test set of 625 farmers, prioritising recall and precision on the dropout class over overall accuracy.',
+            'Ran SHAP on the random forest to rank feature importance and cross-checked it against the logistic regression coefficients.'
+          ]
+        },
+        {
+          heading: 'Key findings',
+          items: [
+            'Attendance rate and distance to the training centre are the two strongest predictors of dropout in both models.',
+            'Non-literate farmers drop out at a substantially higher rate than literate farmers.',
+            'Dropout rate rises steadily with distance from the training centre, nearly tripling between the closest and farthest quartiles.',
+            'Logistic regression catches more true dropouts (60 percent recall versus 47 percent) at a similar precision, making it the recommended model where missing an at-risk farmer is costly.',
+            'The random forest has marginally higher overall accuracy, but that is misleading under class imbalance since it identifies fewer of the farmers who actually dropped out.',
+            'The drivers identified are all factors a programme can act on: outreach for farmers living far away, input distribution priority, and extension visit frequency for farmers showing early disengagement.'
+          ]
+        },
+        {
+          heading: 'Model comparison',
+          headers: ['Metric', 'Logistic regression', 'Random forest'],
+          table: [
+            ['ROC AUC', '0.702', '0.683'],
+            ['Recall, dropped out', '60%', '47%'],
+            ['Precision, dropped out', '31%', '30%'],
+            ['Overall accuracy', '67%', '69%']
+          ]
+        },
+        {
+          heading: 'Limitations',
+          items: [
+            'Precision on the dropout class is low in both models, so a meaningful share of farmers flagged as high risk will not actually drop out. Follow-up visits should be treated as a check in, not an assumption of dropout.',
+            'The model has not been tested on a different programme cycle or region, so it is not yet validated for use outside the conditions it was trained on.'
+          ]
+        },
+        {
+          heading: 'Next steps',
+          items: [
+            'Validate the dropout definition and feature list against real programme data before any field deployment.',
+            'Build the dashboard concept into a working Power BI report connected to the programme\u2019s actual data source.',
+            'Track model performance over time and retrain periodically as engagement patterns shift.'
+          ]
+        }
+      ],
+      charts: [
+        ['ml-shap-drivers.png', 'Random forest SHAP values ranking attendance rate and distance to centre as the strongest predictors'],
+        ['ml-dropout-literacy.png', 'Non-literate farmers drop out at a substantially higher rate than literate farmers'],
+        ['ml-dropout-distance.png', 'Dropout rate rises steadily with distance from the training centre'],
+        ['ml-model-comparison.png', 'Logistic regression catches more true dropouts at a similar precision']
+      ]
+    }
+  },
+  {
     id: 'meal-information-system',
     title: 'End-to-end M&E Information System',
     category: 'M&E Systems',
